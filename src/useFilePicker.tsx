@@ -162,13 +162,14 @@ export const useFilePicker = (options: UseFilePicker.Options = {}) => {
      * customizable. However, you may still pass any native file input props to this
      * hidden one in order to fine-tune your file picking needs.
      */
-    HiddenFileInput({ multiple, accept }: UseFilePicker.FileInputProps): React.ReactElement {
+    HiddenFileInput({ multiple, accept, capture }: UseFilePicker.FileInputProps): React.ReactElement {
       return (
         <input
           type="file"
           ref={fileInputRef}
           multiple={multiple}
           accept={accept}
+          capture={capture}
           style={{ display: 'none' }}
           onChange={(evt): void => {
             const target = evt.target as HTMLInputElement
